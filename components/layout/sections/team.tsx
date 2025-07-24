@@ -80,7 +80,7 @@ export const TeamSection = () => {
       imageUrl: profile4,
       qrCodeWhatsApp: qrCode3,
       firstName: "Jefferson",
-      lastName: "Couto",
+      lastName: "Coutto",
       positions: ["Diretor de Marketing", "Promoter"],
       socialNetworks: [
         {
