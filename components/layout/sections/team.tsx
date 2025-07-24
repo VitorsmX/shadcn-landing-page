@@ -17,6 +17,7 @@ import profile2 from "@/images/perfil-vitor.jpeg";
 import qrCode2 from "@/images/qrcode-vitor.png";
 import profile3 from "@/images/perfil-andre.jpeg"
 import qrCode3 from "@/images/qrcode-andre.png"
+import profile4 from "@/images/perfil-jeff.jpeg"
 import { useState } from "react";
 import { FacebookIcon, InstagramIcon, PhoneIncomingIcon, ZapIcon } from "lucide-react";
 interface TeamProps {
@@ -34,11 +35,32 @@ interface SocialNetworkProps {
 export const TeamSection = () => {
   const teamList: TeamProps[] = [
     {
+      imageUrl: profile3,
+      qrCodeWhatsApp: qrCode3,
+      firstName: "André",
+      lastName: "Guedes",
+      positions: ["Diretor Geral", "Radialista"],
+      socialNetworks: [
+        {
+          name: "Instagram",
+          url: "https://www.linkedin.com/in/leopoldo-miranda/",
+        },
+        {
+          name: "Facebook",
+          url: "https://github.com/leoMirandaa",
+        },
+        {
+          name: "WhatsApp",
+          url: "https://wa.link/29oaop",
+        },
+      ],
+    },
+    {
       imageUrl: profile1,
       qrCodeWhatsApp: qrCode1,
       firstName: "José",
       lastName: "Cruz",
-      positions: ["Diretor de Marketing"],
+      positions: ["Diretor de Produção"],
       socialNetworks: [
         {
           name: "WhatsApp",
@@ -51,6 +73,27 @@ export const TeamSection = () => {
         {
           name: "Facebook",
           url: "https://x.com/leo_mirand4",
+        },
+      ],
+    },
+    {
+      imageUrl: profile4,
+      qrCodeWhatsApp: qrCode3,
+      firstName: "Jefferson",
+      lastName: "Guedes",
+      positions: ["Diretor de Marketing", "Promoter"],
+      socialNetworks: [
+        {
+          name: "Instagram",
+          url: "https://www.linkedin.com/in/leopoldo-miranda/",
+        },
+        {
+          name: "Facebook",
+          url: "https://github.com/leoMirandaa",
+        },
+        {
+          name: "WhatsApp",
+          url: "https://wa.link/29oaop",
         },
       ],
     },
@@ -76,27 +119,6 @@ export const TeamSection = () => {
         {
           name: "Instagram",
           url: "https://www.instagram.com/visoteck_websites/?igsh=cHLsOTVoNXBzNHBq#"
-        },
-      ],
-    },
-    {
-      imageUrl: profile3,
-      qrCodeWhatsApp: qrCode3,
-      firstName: "André",
-      lastName: "Guedes",
-      positions: ["Diretor Geral"],
-      socialNetworks: [
-        {
-          name: "Instagram",
-          url: "https://www.linkedin.com/in/leopoldo-miranda/",
-        },
-        {
-          name: "Facebook",
-          url: "https://github.com/leoMirandaa",
-        },
-        {
-          name: "WhatsApp",
-          url: "https://wa.link/29oaop",
         },
       ],
     },
@@ -194,7 +216,7 @@ export const TeamSection = () => {
                     />
                   </div>
 
-                  <CardTitle className="py-6 pb-4 px-6">
+                  <CardTitle className="py-6 pb-4 px-6 text-lg max-w-full">
                     {firstName}
                     <span className="text-primary ml-2">{lastName}</span>
                   </CardTitle>
