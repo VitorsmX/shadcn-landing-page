@@ -48,16 +48,14 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const awaitedParams = await params;
-  const post = mockPosts.find((p) => p.slug === awaitedParams.slug);
+  const post = mockPosts.find((p) => p.slug === params.slug);
   return {
     title: post?.title || "Post não encontrado",
   };
 }
 
 export default async function PostPage({ params }: Props) {
-    const awaitedParams = await params;
-  const post = mockPosts.find((p) => p.slug === awaitedParams.slug);
+  const post = mockPosts.find((p) => p.slug === params.slug);
 
   if (!post) return notFound();
 
