@@ -15,6 +15,7 @@ interface NewsPreviewProps {
   coverImage: StaticImageData;
   title: string;
   description: string;
+  slug: string;
 }
 
 const newsList: NewsPreviewProps[] = [
@@ -23,24 +24,28 @@ const newsList: NewsPreviewProps[] = [
     title: "📻 Super Crystal na COP 30",
     description:
       "Acompanhe nossa cobertura inédita sobre o evento que irá mudar a forma como vemos a Amazônia.",
+    slug: "festa-junina"
   },
   {
     coverImage: coverImage1,
     title: "🎶 Festival de Carimbó 2025",
     description:
       "Veja como foi a transmissão ao vivo do maior festival de Carimbó do Norte!",
+    slug: "festa-junina"
   },
   {
     coverImage: coverImage1,
     title: "🌱 Comunidades Ribeirinhas",
     description:
       "Entrevistas exclusivas com líderes das comunidades ribeirinhas do Pará.",
+    slug: "festa-junina"
   },
   {
     coverImage: coverImage1,
     title: "🎤 Podcast: Vozes da Amazônia",
     description:
       "Nosso novo podcast com histórias reais do coração da floresta.",
+    slug: "festa-junina"
   },
 ];
 
@@ -95,13 +100,13 @@ export const NewsSliderSection = () => {
 
       {/* Slider */}
       <div ref={sliderRef} className="keen-slider">
-        {newsList.map(({ coverImage, title, description }, index) => {
+        {newsList.map(({ slug, coverImage, title, description }, index) => {
           const cuttedDescription = cutLongText(description, 100, "... Clique para ler mais");
 
           return (
             <Link
-              href={`/blog/${index}`} // troque para o slug real quando tiver
-              key={`${title}-${index}`}
+              href={`/blog/${slug}`} // troque para o slug real quando tiver
+              key={`${title}-${index}-${slug}`}
               className="keen-slider__slide"
             >
               <Card className="h-full bg-background/80 dark:bg-card hover:bg-background transition-all delay-75">

@@ -19,7 +19,7 @@ import profile3 from "@/images/perfil-andre.jpeg"
 import qrCode3 from "@/images/qrcode-andre.png"
 import profile4 from "@/images/perfil-jeff.jpeg"
 import { useState } from "react";
-import { FacebookIcon, InstagramIcon, PhoneIncomingIcon, ZapIcon } from "lucide-react";
+import { FacebookIcon, InstagramIcon, PhoneIncomingIcon } from "lucide-react";
 interface TeamProps {
   imageUrl: StaticImageData | string;
   qrCodeWhatsApp: StaticImageData | string;
