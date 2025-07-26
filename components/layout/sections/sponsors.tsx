@@ -46,7 +46,7 @@ export const SponsorsSection = () => {
       <div className="mx-auto pt-10">
         <Marquee
           className="gap-x-32 gap-y-14"
-          speed={20}
+          speed={(window.visualViewport?.width ?? 750) >= 700 ? 20 : 35}
           pauseOnHover
         >
           {sponsors.map(({ logo, name, href }, index) => (
