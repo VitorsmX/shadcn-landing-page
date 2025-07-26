@@ -45,12 +45,12 @@ export const SponsorsSection = () => {
 
       <div className="mx-auto pt-10">
         <Marquee
-          className="gap-[3rem]"
+          className="gap-x-24 gap-y-14"
           speed={20}
           pauseOnHover
         >
           {sponsors.map(({ logo, name, href }, index) => (
-            <Link key={`${name}-${index}`} href={href} title={`link para a página da empresa: ${name}`} className="hover:scale-110 duration-700 transition-all">
+            <Link key={`${name}-${index}`} href={href} title={`link para a página da empresa: ${name}`} target="_blank" className="hover:scale-110 duration-700 transition-all">
             <div
               key={name}
               className="flex flex-col items-center text-xl md:text-2xl font-medium text-white gap-x-2"
