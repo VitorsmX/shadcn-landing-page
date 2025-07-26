@@ -36,7 +36,7 @@ export const SponsorsSection = () => {
           priority
         />
         {/* Overlay escura para contraste */}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/60 hover:backdrop-blur-md" />
       </div>
 
       <h2 className="text-2xl md:text-4xl text-center font-black text-white mb-6 hover:scale-110 transition-all duration-500">
@@ -50,7 +50,7 @@ export const SponsorsSection = () => {
           pauseOnHover
         >
           {sponsors.map(({ logo, name, href }, index) => (
-            <Link key={`${name}-${index}`} href={href} title={`link para a página da empresa: ${name}`}>
+            <Link key={`${name}-${index}`} href={href} title={`link para a página da empresa: ${name}`} className="hover:scale-110 duration-700 transition-all">
             <div
               key={name}
               className="flex flex-col items-center text-xl md:text-2xl font-medium text-white gap-x-2"
