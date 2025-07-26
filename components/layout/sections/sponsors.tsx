@@ -7,6 +7,7 @@ import logoPardal from "@/images/logo-pardal.jpeg"
 import logoCityShow from "@/images/logo-cityshow.jpeg"
 import { StarsCountRank } from "@/components/ui/stars-count-rank";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface sponsorsProps {
   logo: StaticImageData
@@ -21,6 +22,11 @@ const sponsors: sponsorsProps[] = [
 ];
 
 export const SponsorsSection = () => {
+  const [windowWidth, setWindow] = useState<number>()
+  useEffect(() => {
+    let visualViewportWidth = window.visualViewport?.width
+    setWindow(visualViewportWidth)
+  }, [windowWidth])
   return (
     <section
       id="sponsors"
@@ -46,7 +52,7 @@ export const SponsorsSection = () => {
       <div className="mx-auto pt-10">
         <Marquee
           className="gap-x-32 gap-y-14"
-          speed={(window.visualViewport?.width ?? 750) >= 700 ? 20 : 35}
+          speed={(windowWidth ?? 750) >= 700 ? 20 : 35}
           pauseOnHover
         >
           {sponsors.map(({ logo, name, href }, index) => (
