@@ -51,7 +51,7 @@ export const SponsorsSection = () => {
 
       <div className="mx-auto pt-10">
         <Marquee
-          className="gap-x-32 gap-y-14 hover:backdrop-blur-sm transition-all duration-300"
+          className="gap-x-32 gap-y-14 hover:backdrop-blur-sm hover:bg-black/80 transition-all duration-600 ease-in"
           speed={(windowWidth ?? 750) >= 700 ? 20 : 45}
           pauseOnHover
         >
