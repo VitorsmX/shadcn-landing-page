@@ -3,15 +3,21 @@
 import Marquee from "react-fast-marquee";
 import Image, { StaticImageData } from "next/image";
 import logoVisoteck from "@/images/Logo_VISOTECK-menor.png"
+import logoPardal from "@/images/logo-pardal.jpeg"
+import logoCityShow from "@/images/logo-cityshow.jpeg"
 import { StarsCountRank } from "@/components/ui/stars-count-rank";
+import Link from "next/link";
 
 interface sponsorsProps {
   logo: StaticImageData
   name: string;
+  href: string;
 }
 
 const sponsors: sponsorsProps[] = [
-  {logo: logoVisoteck, name: "Visoteck Websites" },
+  {logo: logoVisoteck, name: "Visoteck Websites", href: "https://visoteckgo.vercel.app/" },
+  {logo: logoPardal, name: "Pardal Tecnologia", href: "https://www.instagram.com/josecruzpardal777?igsh=MTExcHg1YTE4aGUyMA==" },
+  {logo: logoCityShow, name: "City Show Eventos", href: "https://www.instagram.com/cityshoweventos?igsh=ejZiMG41c2ptb2gz" },
 ];
 
 export const SponsorsSection = () => {
@@ -43,7 +49,8 @@ export const SponsorsSection = () => {
           speed={20}
           pauseOnHover
         >
-          {sponsors.map(({ logo, name }) => (
+          {sponsors.map(({ logo, name, href }, index) => (
+            <Link key={`${name}-${index}`} href={href} title={`link para a página da empresa: ${name}`}>
             <div
               key={name}
               className="flex flex-col items-center text-xl md:text-2xl font-medium text-white gap-x-2"
@@ -59,6 +66,7 @@ export const SponsorsSection = () => {
               <StarsCountRank numberOfStars={5} className="p-2" />
               {name}
             </div>
+            </Link>
           ))}
         </Marquee>
       </div>
