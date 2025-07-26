@@ -151,7 +151,7 @@ export const TeamSection = () => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-2 xl:grid-cols-3 gap-8">
+      <div className="grid max-sm:grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
         {teamList.map(
           (
             {
@@ -216,7 +216,7 @@ export const TeamSection = () => {
                     />
                   </div>
 
-                  <CardTitle className="py-6 pb-4 px-6 text-lg max-w-full">
+                  <CardTitle className="py-6 pb-4 px-6 text-lg max-sm:text-sm max-w-[85%] text-wrap">
                     {firstName}
                     <span className="text-primary ml-2">{lastName}</span>
                   </CardTitle>
