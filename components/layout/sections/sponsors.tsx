@@ -50,7 +50,7 @@ export const SponsorsSection = () => {
           pauseOnHover
         >
           {sponsors.map(({ logo, name, href }, index) => (
-            <Link key={`${name}-${index}`} href={href} title={`link para a página da empresa: ${name}`} target="_blank" className="hover:scale-110 duration-700 transition-all">
+            <Link key={`${name}-${index}`} href={href} title={`link para a página da empresa: ${name}`} target="_blank" className="mx-5 hover:scale-110 duration-700 transition-all">
             <div
               key={name}
               className="flex flex-col items-center text-xl md:text-2xl font-medium text-white gap-x-2"
