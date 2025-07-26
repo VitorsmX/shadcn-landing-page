@@ -52,14 +52,14 @@ export const SponsorsSection = () => {
       <div className="mx-auto pt-10">
         <Marquee
           className="gap-x-32 gap-y-14"
-          speed={(windowWidth ?? 750) >= 700 ? 20 : 35}
+          speed={(windowWidth ?? 750) >= 700 ? 20 : 45}
           pauseOnHover
         >
           {sponsors.map(({ logo, name, href }, index) => (
             <Link key={`${name}-${index}`} href={href} title={`link para a página da empresa: ${name}`} target="_blank" className="px-5">
             <div
               key={name}
-              className="flex flex-col items-center text-xl md:text-2xl font-medium text-white gap-x-2 max-sm:scale-75 px-4"
+              className="flex flex-col items-center text-xl md:text-2xl font-medium text-white gap-x-2 max-sm:hover:scale-90 max-sm:scale-75 px-6"
             >
               <Image
                 src={logo}
