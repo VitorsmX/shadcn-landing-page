@@ -56,7 +56,7 @@ export const RadioPlayer = ({ streamUrl, className }: RadioPlayerProps) => {
   return (
     <div
       className={cn(
-        "w-full max-w-md p-4 rounded-lg shadow-lg bg-background/70 hover:bg-orange-500 transition-all duration-500 ease-in backdrop-blur flex flex-col gap-4",
+        "w-full max-w-md p-4 rounded-lg shadow-lg bg-background/70 hover:bg-orange-700 transition-all duration-500 ease-in backdrop-blur flex flex-col gap-4",
         className
       )}
     >
