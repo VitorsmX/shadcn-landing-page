@@ -53,7 +53,7 @@ export const HeroSection = () => {
           </p>
 
           <div className="min-w-full">
-            <RadioPlayer streamUrl="https://stream-ssl.example.com:8000/live.mp3" className="min-w-full justify-center" />
+            <RadioPlayer streamUrl="https://stream-163.zeno.fm/khsh4jxfjesuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJraHNoNGp4Zmplc3V2IiwiaG9zdCI6InN0cmVhbS0xNjMuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6InN4Q0tJN293U25LdUlTSnIwcFYwd3ciLCJpYXQiOjE3NTM4Mzc4NzAsImV4cCI6MTc1MzgzNzkzMH0.giT1ca9j2UBH8zvOvALbmD9hJk7046UyWj6bMXtB0_c&an-uid=4681006817049242923&dot-uid=0c3c2204004a6f3b46e09964&triton-uid=cookie%3A63a1f8ae-f733-43c6-a9d3-60eb745614ae&amb-uid=4552631827473961733&dbm-uid=CAESELLZqA1UAm2F_deLUeLhGQk&cto-uid=7f45a3be-5216-415a-a943-7ed67a5c3b18-68801461-4252&bsw-uid=8bd2e6dc-cc2c-4008-9828-faa063c6ab80&dyn-uid=8823961300508505310&ttd-uid=91e70c23-e78b-4b5e-ba12-d826bc30d0fd&adtonosListenerId=01K1CDYMG0FRF3W3V7HD8QWGZA&aw_0_req_lsid=2e8120ee12b12f72bd37b5b2bbea77c1" className="min-w-full justify-center" />
           </div>
         </div>
       </div>

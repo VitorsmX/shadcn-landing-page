@@ -81,7 +81,7 @@ export const TeamSection = () => {
       qrCodeWhatsApp: qrCode3,
       firstName: "Jefferson",
       lastName: "Coutto",
-      positions: ["Diretor de Marketing", "Promoter"],
+      positions: ["Diretor de Marketing", "DJ"],
       socialNetworks: [
         {
           name: "Instagram",
