@@ -21,13 +21,43 @@ export const RadioPlayer = ({ streamUrl, className }: RadioPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [volume, setVolume] = useState(1); // de 0 a 1
+  const [volume, setVolume] = useState(1);
+  const lastPlaybackTime = useRef<number>(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
     }
   }, [volume]);
+
+  // Monitoramento de atraso ou travamento
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    timeoutRef.current = setInterval(() => {
+      const current = audioRef.current;
+      if (!current) return;
+
+      if (!current.paused) {
+        const currentTime = current.currentTime;
+        const timeDiff = Math.abs(currentTime - lastPlaybackTime.current);
+
+        if (timeDiff < 0.01) {
+          console.warn("Possível travamento detectado. Reiniciando stream...");
+          current.pause();
+          current.load(); // Força o reload do stream
+          current.play().catch(console.error);
+        }
+
+        lastPlaybackTime.current = currentTime;
+      }
+    }, 10000); // checa a cada 10s
+
+    return () => {
+      if (timeoutRef.current) clearInterval(timeoutRef.current);
+    };
+  }, [isPlaying]);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -56,13 +86,13 @@ export const RadioPlayer = ({ streamUrl, className }: RadioPlayerProps) => {
   return (
     <div
       className={cn(
-        "w-full max-w-md p-4 rounded-lg shadow-lg bg-background/70 hover:bg-orange-700/60 transition-all duration-500 ease-in backdrop-blur flex flex-col gap-4",
+        "w-full max-w-md p-4 rounded-lg shadow-lg bg-background/70 backdrop-blur flex flex-col gap-4",
         className
       )}
     >
       {/* Controles principais */}
-      <div className="flex items-center justify-center gap-4">
-        <div className="flex items-center justify-center gap-3 hover:scale-105 duration-300 transition-all">
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
           <Button onClick={togglePlay} size="icon" variant="outline" disabled={isLoading}>
             {isLoading ? (
               <Loader2 className="animate-spin" />
@@ -77,8 +107,8 @@ export const RadioPlayer = ({ streamUrl, className }: RadioPlayerProps) => {
               {isLoading
                 ? "Carregando transmissão..."
                 : isPlaying
-                ? "Ouvindo a Rádio Super Crystal"
-                : "Ouça a Rádio Super Crystal"}
+                ? "Ouvindo a Rádio Super Cristal"
+                : "Ouça a Rádio Super Cristal"}
             </span>
             <span className="text-muted-foreground text-xs">
               {isLoading ? "Conectando ao stream" : isPlaying ? "Tocando agora" : "Pausado"}
@@ -112,7 +142,7 @@ export const RadioPlayer = ({ streamUrl, className }: RadioPlayerProps) => {
         onPlaying={() => setIsLoading(false)}
         onWaiting={() => setIsLoading(true)}
         onCanPlay={() => setIsLoading(false)}
-        onStalled={() => setIsLoading(false)}
+        onStalled={() => setIsLoading(true)}
         onError={(e) => {
           console.error("Erro de streaming:", e);
           setIsLoading(false);
